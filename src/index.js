@@ -26,7 +26,17 @@ this.state= {
     return (
 
       <div> {this.state.items.map(function(item, index){
-        return <div key= {item.id} className="col-md-8"> {item.id} </div>
+        return <div key= {item.id} className="col-md-12">
+        <div className= "col-md-6">
+
+        </div>
+        <div className= "col-md-6">
+         <h2> {item.name}</h2>
+         <p> location : {item.location.name} , {item.location.city} </p>
+
+         </div>
+
+          </div>
       })}
       </div>
             );
