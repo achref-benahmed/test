@@ -26,21 +26,34 @@ this.state= {
 
   render (){
     return (
-
       <div> {this.state.items.map(function(item, index){
-        return <div key= {item.id} className="col-md-12">
+        var start =new Date(item.startDateTime ) ;
+
+        return <div key= {item.id} className="col-md-12 element">
         <div className= "col-md-4">
           <img src={item.eventGroup.imageUrl} default className="pic" />
         </div>
-        <div className= "col-md-6">
+        <div className= "col-md-5">
          <h2> {item.name}</h2>
-         <p> location : {item.location.name} , {item.location.city} </p>
+         <p><i className="material-icons">&#xe0c8;</i> Location : {item.location.name} , {item.location.city} </p>
+         <p>
+                 <i className="material-icons">&#xe855;</i>
+                 StartTime : {new Intl.DateTimeFormat('DE', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit'}).format(start)}
+
+          </p>
 
          </div>
-         <div className="col-md-2">
+         <div className="col-md-3">
+          <i className="material-icons">&#xe7fb;</i>
           Booked seats : {item.seatsBooked}/{item.seats}
+          <div >
+          <button className="select"> Select Event </button>
           </div>
           </div>
+
+          </div>
+
+
 
       })}
       </div>
